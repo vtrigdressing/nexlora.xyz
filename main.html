@@ -71,7 +71,7 @@
     <div class="top-bar">
         <button onclick="showSection('settings')">Settings</button>
         <button onclick="showSection('tabs')">Tabs</button>
-        <button onclick="showSection('games')">Games</button>
+        <button onclick="goToGames()">Games</button>
     </div>
 
     <!-- Main content area -->
@@ -91,12 +91,6 @@
             <p>Customize your tab icon and name here.</p>
             <!-- Add form elements or controls for tab customization -->
         </div>
-
-        <div id="games" class="content-area">
-            <h2>Games</h2>
-            <p>Explore games here!</p>
-            <!-- Add game options or links to games -->
-        </div>
     </div>
 
     <script>
@@ -109,6 +103,11 @@
 
             // Show the selected section
             document.getElementById(sectionId).style.display = 'block';
+        }
+
+        // Function to redirect to the games page
+        function goToGames() {
+            window.location.href = "https://nexlora.xyz/games";
         }
     </script>
 </body>
