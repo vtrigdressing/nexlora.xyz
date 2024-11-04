@@ -133,6 +133,27 @@
     </div>
 
     <script>
+        // Load previous settings from localStorage
+        window.onload = function() {
+            const savedTitle = localStorage.getItem('tabTitle');
+            const savedIcon = localStorage.getItem('tabIcon');
+
+            if (savedTitle) {
+                document.title = savedTitle;
+                document.getElementById('titleInput').value = savedTitle;
+            }
+
+            if (savedIcon) {
+                let link = document.querySelector("link[rel~='icon']");
+                if (!link) {
+                    link = document.createElement('link');
+                    link.rel = 'icon';
+                    document.head.appendChild(link);
+                }
+                link.href = savedIcon;
+            }
+        };
+
         // Function to show specific sections based on the button clicked
         function showSection(sectionId) {
             // Hide all sections
@@ -159,6 +180,7 @@
             const newTitle = document.getElementById('titleInput').value;
             if (newTitle) {
                 document.title = newTitle;
+                localStorage.setItem('tabTitle', newTitle); // Save the title in localStorage
             } else {
                 alert('Please enter a title for the tab.');
             }
@@ -178,6 +200,7 @@
                     document.head.appendChild(link);
                 }
                 link.href = iconURL;
+                localStorage.setItem('tabIcon', iconURL); // Save the icon URL in localStorage
             } else {
                 alert('Please select a PNG or JPG image.');
             }
@@ -186,3 +209,4 @@
 
 </body>
 </html>
+
