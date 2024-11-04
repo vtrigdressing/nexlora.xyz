@@ -3,75 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Main Site - Retro Bowl</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+        .game-container {
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-            margin: 0;
+            margin-top: 20px;
         }
-        .login-container {
-            width: 300px;
-            padding: 2em;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-        h2 {
-            text-align: center;
-        }
-        input {
+        .game-frame {
             width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
+            max-width: 800px;
+            height: 600px;
             border: none;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .error {
-            color: red;
-            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Login</h2>
-        <div class="error" id="error-message"></div>
-        <input type="text" id="username" placeholder="Username" required>
-        <input type="password" id="password" placeholder="Password" required>
-        <button onclick="login()">Login</button>
+    <h1>Play Retro Bowl</h1>
+    <div class="game-container">
+        <!-- Embed Retro Bowl using an iframe -->
+        <iframe class="game-frame" src="https://retrobowl.me/" allowfullscreen></iframe>
     </div>
-
-    <script>
-        function login() {
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-            const errorMessage = document.getElementById("error-message");
-
-            
-            if (username === "vtrigdressing" && password === "lebronisking12") {
-                window.location.href = "main.html"; e
-            } else {
-                errorMessage.textContent = "Invalid username or password. Please try again.";
-            }
-        }
-    </script>
 </body>
 </html>
+
