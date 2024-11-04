@@ -36,6 +36,7 @@
             padding: 1rem;
             background-color: #00796b;
             color: white;
+            position: relative;
         }
 
         /* Button styling in top-right corner */
@@ -53,6 +54,46 @@
         /* Hover effect for buttons */
         .top-bar button:hover {
             background-color: #00251a;
+        }
+
+        /* Profile circle */
+        .profile-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #004d40;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        /* Profile menu */
+        .profile-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .profile-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .profile-menu a:hover {
+            background-color: #f0f0f0;
         }
 
         /* Content area styling */
@@ -102,11 +143,16 @@
         <button onclick="showSection('tabs')">Tabs</button>
         <button onclick="goToGames()">Games</button>
         <button onclick="goToSnowRider()">Snow Rider 3D</button>
+        <div class="profile-circle" onclick="toggleProfileMenu()">U</div>
+        <div class="profile-menu" id="profileMenu">
+            <a href="#" onclick="changeProfile()">Change Profile</a>
+            <a href="#" onclick="signOut()">Sign Out</a>
+        </div>
     </div>
 
     <!-- Main content area -->
     <div class="content">
-        <h1>Welcome to the Main Page!</h1>
+        <h1>Welcome, <span id="username">User</span>!</h1>
         <p>Select a section to access its features.</p>
 
         <!-- Sections for settings, tabs, and games -->
@@ -137,6 +183,7 @@
         window.onload = function() {
             const savedTitle = localStorage.getItem('tabTitle');
             const savedIcon = localStorage.getItem('tabIcon');
+            const savedUsername = localStorage.getItem('username');
 
             if (savedTitle) {
                 document.title = savedTitle;
@@ -151,6 +198,10 @@
                     document.head.appendChild(link);
                 }
                 link.href = savedIcon;
+            }
+
+            if (savedUsername) {
+                document.getElementById('username').innerText = savedUsername;
             }
         };
 
@@ -205,6 +256,28 @@
                 alert('Please select a PNG or JPG image.');
             }
         });
+
+        // Function to toggle the profile menu
+        function toggleProfileMenu() {
+            const menu = document.getElementById('profileMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Function to change the profile
+        function changeProfile() {
+            const newUsername = prompt('Enter new username:');
+            if (newUsername) {
+                document.getElementById('username').innerText = newUsername;
+                localStorage.setItem('username', newUsername);
+                toggleProfileMenu(); // Hide the menu after changing profile
+            }
+        }
+
+        // Function to sign out and redirect to start page
+        function signOut() {
+            localStorage.removeItem('username');
+            window.location.href = 'index.html'; // Redirect to start page
+        }
     </script>
 
 </body>
