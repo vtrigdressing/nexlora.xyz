@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* Reset styles for cleaner look */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        /* Container styling */
+        .login-container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        /* Input styling */
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        /* Button styling */
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Button hover effect */
+        .login-container button:hover {
+            background-color: #388E3C;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript for handling login validation
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault(); // Prevent form from submitting normally
+
+            // Get the values entered in the username and password fields
+            const username = document.querySelector("input[type='text']").value;
+            const password = document.querySelector("input[type='password']").value;
+
+            // Check if credentials are correct
+            if (username === "vtrigdressing" && password === "lebronisking12") {
+                // Redirect to main.html if credentials are correct
+                window.location.href = "main.html";
+            } else {
+                // Show an alert if credentials are incorrect
+                alert("Invalid credentials. Please try again.");
+            }
+        });
+    </script>
+
+</body>
+</html>
