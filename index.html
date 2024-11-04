@@ -3,52 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Site - Retro Bowl</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
-            color: #333;
-            text-align: center;
-            padding: 2em;
-        }
-        h1 {
-            font-size: 2em;
-        }
-        .games-container {
-            margin-top: 2em;
-        }
-        .game {
-            background-color: #d3d3d3;
-            padding: 20px;
-            margin: 10px;
-            border-radius: 8px;
-            display: inline-block;
-            width: 300px;
-        }
-        .game button {
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .game button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to the Game Hub</h1>
-    <div class="games-container">
-        <div class="game">
-            <h2>Retro Bowl</h2>
-            <p>Experience the thrill of American football in this retro-style game. Manage your team and take them to victory!</p>
-            <button onclick="window.open('https://retrobowl.me/', '_blank')">Play Retro Bowl</button>
-        </div>
-        
+    <div class="login-container">
+        <h2>Login</h2>
+        <div class="error" id="error-message"></div>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="login()">Login</button>
     </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
+
+            if (username === "vtrigdressing" && password === "lebronisking12") {
+                window.location.href = "main.html";
+            } else {
+                errorMessage.textContent = "Invalid username or password. Please try again.";
+            }
+        }
+    </script>
 </body>
 </html>
+
