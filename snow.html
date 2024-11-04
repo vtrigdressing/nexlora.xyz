@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snow Rider 3D</title>
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        /* Game container styling */
+        #gameContainer {
+            width: 800px;
+            height: 450px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="gameContainer">
+        <!-- Embedded Snow Rider 3D game in iframe -->
+        <iframe id="game" title="Snow Rider 3D" src="https://www.hoodamath.com/mobile/games/snow-rider-3d/game.html?nocheckorient=1" 
+                scrolling="no" allow="fullscreen" 
+                style="width: 100%; height: 100%; border: none;">
+        </iframe>
+    </div>
+
+</body>
+</html>
